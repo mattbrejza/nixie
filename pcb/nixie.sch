@@ -68,7 +68,7 @@
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="no" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
@@ -99,66 +99,6 @@
 <libraries>
 <library name="SparkFun">
 <packages>
-<package name="TACTILE_SWITCH_SMD">
-<wire x1="-1.54" y1="-2.54" x2="-2.54" y2="-1.54" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="-1.24" x2="-2.54" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="-2.54" y1="1.54" x2="-1.54" y2="2.54" width="0.2032" layer="51"/>
-<wire x1="-1.54" y1="2.54" x2="1.54" y2="2.54" width="0.2032" layer="21"/>
-<wire x1="1.54" y1="2.54" x2="2.54" y2="1.54" width="0.2032" layer="51"/>
-<wire x1="2.54" y1="1.24" x2="2.54" y2="-1.24" width="0.2032" layer="21"/>
-<wire x1="2.54" y1="-1.54" x2="1.54" y2="-2.54" width="0.2032" layer="51"/>
-<wire x1="1.54" y1="-2.54" x2="-1.54" y2="-2.54" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="1.905" y2="0.445" width="0.127" layer="51"/>
-<wire x1="1.905" y1="0.445" x2="2.16" y2="-0.01" width="0.127" layer="51"/>
-<wire x1="1.905" y1="-0.23" x2="1.905" y2="-1.115" width="0.127" layer="51"/>
-<circle x="0" y="0" radius="1.27" width="0.2032" layer="21"/>
-<smd name="1" x="-2.54" y="1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="2" x="2.54" y="1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="3" x="-2.54" y="-1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="4" x="2.54" y="-1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<text x="-0.889" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-2.032" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="TACTILE-PTH">
-<description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
-<wire x1="3.048" y1="1.016" x2="3.048" y2="2.54" width="0.2032" layer="51"/>
-<wire x1="3.048" y1="2.54" x2="2.54" y2="3.048" width="0.2032" layer="51"/>
-<wire x1="2.54" y1="-3.048" x2="3.048" y2="-2.54" width="0.2032" layer="51"/>
-<wire x1="3.048" y1="-2.54" x2="3.048" y2="-1.016" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="3.048" x2="-3.048" y2="2.54" width="0.2032" layer="51"/>
-<wire x1="-3.048" y1="2.54" x2="-3.048" y2="1.016" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="-3.048" x2="-3.048" y2="-2.54" width="0.2032" layer="51"/>
-<wire x1="-3.048" y1="-2.54" x2="-3.048" y2="-1.016" width="0.2032" layer="51"/>
-<wire x1="2.54" y1="-3.048" x2="2.159" y2="-3.048" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="-3.048" x2="-2.159" y2="-3.048" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="3.048" x2="-2.159" y2="3.048" width="0.2032" layer="51"/>
-<wire x1="2.54" y1="3.048" x2="2.159" y2="3.048" width="0.2032" layer="51"/>
-<wire x1="2.159" y1="3.048" x2="-2.159" y2="3.048" width="0.2032" layer="21"/>
-<wire x1="-2.159" y1="-3.048" x2="2.159" y2="-3.048" width="0.2032" layer="21"/>
-<wire x1="3.048" y1="0.998" x2="3.048" y2="-1.016" width="0.2032" layer="21"/>
-<wire x1="-3.048" y1="1.028" x2="-3.048" y2="-1.016" width="0.2032" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="0.508" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="-0.508" x2="-2.54" y2="-1.27" width="0.2032" layer="51"/>
-<wire x1="-2.54" y1="0.508" x2="-2.159" y2="-0.381" width="0.2032" layer="51"/>
-<circle x="0" y="0" radius="1.778" width="0.2032" layer="21"/>
-<pad name="1" x="-3.2512" y="2.2606" drill="1.016"/>
-<pad name="2" x="3.2512" y="2.2606" drill="1.016"/>
-<pad name="3" x="-3.2512" y="-2.2606" drill="1.016"/>
-<pad name="4" x="3.2512" y="-2.2606" drill="1.016"/>
-<text x="-2.54" y="3.81" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-</package>
-<package name="KSA_SEALED_TAC_SWITCH">
-<wire x1="0" y1="1.27" x2="0" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="3.81" x2="5.08" y2="3.81" width="0.127" layer="21"/>
-<wire x1="5.08" y1="3.81" x2="5.08" y2="-3.81" width="0.127" layer="21"/>
-<wire x1="5.08" y1="-3.81" x2="-5.08" y2="-3.81" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="-3.81" x2="-5.08" y2="3.81" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.81" y="2.54" drill="1" shape="square"/>
-<pad name="P$2" x="3.81" y="2.54" drill="1" shape="square"/>
-<pad name="P$3" x="-3.81" y="-2.54" drill="1" shape="square"/>
-<pad name="P$4" x="3.81" y="-2.54" drill="1" shape="square"/>
-</package>
 <package name="SJ_2W">
 <description>&lt;b&gt;Solder jumper&lt;/b&gt;</description>
 <wire x1="3.175" y1="-1.524" x2="-3.175" y2="-1.524" width="0.1524" layer="21"/>
@@ -504,27 +444,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 </package>
 </packages>
 <symbols>
-<symbol name="SWITCH-MOMENTARY">
-<wire x1="1.905" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="4.445" x2="1.905" y2="3.175" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="4.445" x2="-1.905" y2="3.175" width="0.254" layer="94"/>
-<wire x1="1.905" y1="4.445" x2="0" y2="4.445" width="0.254" layer="94"/>
-<wire x1="0" y1="4.445" x2="-1.905" y2="4.445" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="0" y1="4.445" x2="0" y2="3.175" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0" x2="1.905" y2="1.27" width="0.254" layer="94"/>
-<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
-<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
-<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
-<pin name="3" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="4" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="2" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="2"/>
-</symbol>
 <symbol name="SJ_2">
 <wire x1="-0.635" y1="-1.397" x2="0.635" y2="-1.397" width="1.27" layer="94" curve="180" cap="flat"/>
 <wire x1="-0.635" y1="1.397" x2="0.635" y2="1.397" width="1.27" layer="94" curve="-180" cap="flat"/>
@@ -593,48 +512,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="TAC_SWITCH" prefix="S" uservalue="yes">
-<description>&lt;b&gt;Momentary Switch&lt;/b&gt;
-Button commonly used for reset or general input. Spark Fun Electronics SKU : COM-00097</description>
-<gates>
-<gate name="S" symbol="SWITCH-MOMENTARY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="SMD" package="TACTILE_SWITCH_SMD">
-<connects>
-<connect gate="S" pin="1" pad="1"/>
-<connect gate="S" pin="2" pad="2"/>
-<connect gate="S" pin="3" pad="3"/>
-<connect gate="S" pin="4" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH" package="TACTILE-PTH">
-<connects>
-<connect gate="S" pin="1" pad="1"/>
-<connect gate="S" pin="2" pad="2"/>
-<connect gate="S" pin="3" pad="3"/>
-<connect gate="S" pin="4" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="KSA_SEALED" package="KSA_SEALED_TAC_SWITCH">
-<connects>
-<connect gate="S" pin="1" pad="P$1"/>
-<connect gate="S" pin="2" pad="P$2"/>
-<connect gate="S" pin="3" pad="P$3"/>
-<connect gate="S" pin="4" pad="P$4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SOLDERJUMPER_2WAY" prefix="SJ" uservalue="yes">
 <description>&lt;b&gt;Solder Jumper&lt;/b&gt;
 2 way solder jumper</description>
@@ -14269,6 +14146,39 @@ Source: http://focus.ti.com/lit/ds/symlink/sn65als176.pdf</description>
 <pad name="2A" x="-2.54" y="3.3" drill="0.8" shape="octagon"/>
 <pad name="2B" x="2.54" y="3.3" drill="0.8" shape="octagon"/>
 </package>
+<package name="TACTSIDE">
+<pad name="4" x="3.5" y="0" drill="1.3"/>
+<pad name="3" x="-3.6" y="0" drill="1.3"/>
+<pad name="2" x="2.5" y="-2.5" drill="0.99"/>
+<pad name="1" x="-2.5" y="-2.5" drill="0.99"/>
+<wire x1="-3.4" y1="-0.8" x2="-3.4" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="0.3" x2="-3.4" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="1.5" x2="-3.2" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="1.5" x2="-3.2" y2="-4.3" width="0.127" layer="51"/>
+<wire x1="3.3" y1="1.5" x2="3.1" y2="1.5" width="0.127" layer="51"/>
+<wire x1="3.1" y1="1.5" x2="3.1" y2="-4.3" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="0.3" x2="-3.8" y2="0.3" width="0.127" layer="51"/>
+<wire x1="-3.8" y1="0.3" x2="-3.8" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="-3.8" y1="-0.3" x2="-3.4" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="3.3" y1="0.3" x2="3.8" y2="0.3" width="0.127" layer="51"/>
+<wire x1="3.8" y1="0.3" x2="3.8" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="3.8" y1="-0.3" x2="3.3" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="3.3" y1="0.3" x2="3.3" y2="1.5" width="0.127" layer="51"/>
+<wire x1="3.3" y1="-0.8" x2="3.3" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-0.8" x2="-3.4" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-4.5" x2="-1.8" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="-4.5" x2="1.8" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="1.8" y1="-4.5" x2="3.3" y2="-4.5" width="0.127" layer="51"/>
+<wire x1="3.3" y1="-4.5" x2="3.3" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-0.8" x2="3.3" y2="-0.8" width="0.127" layer="51"/>
+<rectangle x1="-2.8" y1="-2.8" x2="-2.2" y2="-2.2" layer="51"/>
+<rectangle x1="2.2" y1="-2.8" x2="2.8" y2="-2.2" layer="51"/>
+<wire x1="-3.2" y1="-4.3" x2="3.1" y2="-4.3" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="-4.5" x2="-1.6" y2="-8.7" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-8.7" x2="-1.6" y2="-8.8" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-8.8" x2="1.6" y2="-8.8" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-8.8" x2="1.8" y2="-4.5" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DS3231">
@@ -14700,6 +14610,23 @@ Source: http://focus.ti.com/lit/ds/symlink/sn65als176.pdf</description>
 <pin name="NC1" x="0" y="7.62" visible="off" length="middle" rot="R270"/>
 <pin name="COM1" x="2.54" y="-7.62" visible="off" length="middle" rot="R90"/>
 </symbol>
+<symbol name="SWITCH-MOMENTARY">
+<wire x1="1.905" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="4.445" x2="-1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="0" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="4.445" x2="-1.905" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="0" y1="4.445" x2="0" y2="3.175" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="1.905" y2="1.27" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
+<pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DS3234" prefix="IC">
@@ -15092,6 +15019,24 @@ Source: DCJ0303.pdf</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="TAC_SWITCH" prefix="S" uservalue="yes">
+<description>&lt;b&gt;Momentary Switch&lt;/b&gt;
+Button commonly used for reset or general input. Spark Fun Electronics SKU : COM-00097</description>
+<gates>
+<gate name="S" symbol="SWITCH-MOMENTARY" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TACTSIDE">
+<connects>
+<connect gate="S" pin="1" pad="1"/>
+<connect gate="S" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="resistor-shunt">
@@ -15147,27 +15092,6 @@ Source: DCJ0303.pdf</description>
 </library>
 <library name="diode">
 <packages>
-<package name="SOD-123_MINI-SMA">
-<description>&lt;b&gt;Molded plasitc,JEDEC SOD-123/Mini SMA&lt;/b&gt;&lt;p&gt;
-Source: Comchip CGRM4001-G.pdf</description>
-<wire x1="-1.8725" y1="0.835" x2="1.8725" y2="0.835" width="0.127" layer="51"/>
-<wire x1="-1.8725" y1="-0.835" x2="1.8725" y2="-0.835" width="0.127" layer="51"/>
-<wire x1="-0.3175" y1="0" x2="0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="-0.4763" x2="0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0.4763" x2="-0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.5613" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.5613" y2="0" width="0.127" layer="21"/>
-<smd name="A" x="1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<smd name="C" x="-1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<text x="-3.048" y="1.143" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.048" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.95" y1="-0.9" x2="-1.5875" y2="0.9" layer="51"/>
-<rectangle x1="1.5875" y1="-0.9" x2="1.95" y2="0.9" layer="51"/>
-<rectangle x1="-1.0249" y1="-0.9" x2="-0.6625" y2="0.9" layer="51"/>
-</package>
 <package name="DO204-10">
 <description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
 diameter 4 mm, horizontal, grid 10 mm</description>
@@ -16648,30 +16572,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CGRM400*-G" prefix="D">
-<description>&lt;b&gt;Molded plasitc,JEDEC SOD-123/Mini SMA&lt;/b&gt;&lt;p&gt;
-Source: Comchip CGRM4001-G.pdf</description>
-<gates>
-<gate name="G$1" symbol="D" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOD-123_MINI-SMA">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="1"/>
-<technology name="2"/>
-<technology name="3"/>
-<technology name="4"/>
-<technology name="5"/>
-<technology name="6"/>
-<technology name="7"/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="DIODE-" prefix="D" uservalue="yes">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <gates>
@@ -22261,46 +22161,46 @@ Based on the following sources:
 <part name="N10" library="russian-nixies-mod" deviceset="IN-3" device=""/>
 <part name="N11" library="russian-nixies-mod" deviceset="IN-3" device=""/>
 <part name="IC3" library="Mine" deviceset="DS3234" device=""/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="BAT1" library="Mine" deviceset="2032" device="" value=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="IC4" library="Mine" deviceset="MAX1771" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="L1" library="inductor-neosid" deviceset="BS" device="11"/>
+<part name="L1" library="inductor-neosid" deviceset="BS" device="11" value="100u"/>
 <part name="Q1" library="Mine" deviceset="BUZ11" device="BH"/>
-<part name="R4" library="resistor-shunt" deviceset="SMR-WAV" device=""/>
-<part name="R5" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R6" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R4" library="resistor-shunt" deviceset="SMR-WAV" device="" value="0.05"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="1M5"/>
+<part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C5" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R7" library="rcl" deviceset="R-TRIMM" device="3314J"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="nc"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="nc"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C0603" value="nc"/>
+<part name="R7" library="rcl" deviceset="R-TRIMM" device="3314J" value="4k7 trim"/>
 <part name="D1" library="diode" deviceset="DIODE-" device="C1702-05" value="1N5059"/>
-<part name="C6" library="rcl" deviceset="CPOL-EU" device="E2.5-6"/>
+<part name="C6" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="2.2u 250V"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R13" library="rcl" deviceset="R-EU_" device="R0805"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T2" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R15" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T4" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R17" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R18" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T6" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R19" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R20" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T8" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R21" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R22" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T10" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R23" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R24" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T12" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3"/>
-<part name="R25" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R13" library="rcl" deviceset="R-EU_" device="R0805" value="22k"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T2" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T4" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T6" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
+<part name="R20" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T8" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R21" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
+<part name="R22" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T10" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R23" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
+<part name="R24" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="T12" library="SparkFun" deviceset="TRANSISTOR_NPN" device="SOT23-3" value="npnhvsmd"/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="47k"/>
 <part name="R26" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R27" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R28" library="rcl" deviceset="R-EU_" device="R0603"/>
@@ -22309,53 +22209,49 @@ Based on the following sources:
 <part name="IC6" library="74xx-eu" deviceset="74*164" device="D" technology="HCT"/>
 <part name="P+10" library="supply1" deviceset="+5V" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C8" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C9" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C10" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C11" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C12" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C13" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="D2" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="D3" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="D4" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="D5" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="D6" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="D7" library="SparkFun" deviceset="DIODE" device="SOD" value="CGRM4001-G"/>
-<part name="R38" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R39" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R40" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R41" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="T21" library="transistor" deviceset="*-NPN-" device="TO92-EBC"/>
-<part name="T22" library="transistor" deviceset="*-NPN-" device="TO92-EBC"/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C8" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C9" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C10" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C11" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C12" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C13" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="D2" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="D3" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="D4" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="D5" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="D6" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="D7" library="SparkFun" deviceset="DIODE" device="SOD" value="1n4148"/>
+<part name="R38" library="rcl" deviceset="R-EU_" device="R0603" value="220k"/>
+<part name="R39" library="rcl" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="R40" library="rcl" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="R41" library="rcl" deviceset="R-EU_" device="R0603" value="200k"/>
+<part name="T21" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="npnhvth"/>
+<part name="T22" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="npnhvth"/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="C14" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C14" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="IC7" library="1wire" deviceset="DS18B20" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
-<part name="C15" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R36" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R37" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="C15" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R36" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R37" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="IC8" library="Mine" deviceset="MAX603" device=""/>
 <part name="P+16" library="supply1" deviceset="+12V" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
-<part name="C16" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C17" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="S2" library="SparkFun" deviceset="TAC_SWITCH" device="PTH"/>
-<part name="S4" library="SparkFun" deviceset="TAC_SWITCH" device="PTH"/>
-<part name="S5" library="SparkFun" deviceset="TAC_SWITCH" device="PTH"/>
-<part name="S6" library="SparkFun" deviceset="TAC_SWITCH" device="PTH"/>
+<part name="C16" library="rcl" deviceset="C-EU" device="C0603" value="10u"/>
+<part name="C17" library="rcl" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="C19" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="T1" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T3" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T5" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T7" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T9" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T11" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="T13" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
-<part name="R8" library="rcl" deviceset="R-EU_" device="R0805"/>
-<part name="T14" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16"/>
+<part name="T1" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T3" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T5" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T7" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T9" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T11" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="T13" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
+<part name="R8" library="rcl" deviceset="R-EU_" device="R0805" value="22k"/>
+<part name="T14" library="transistor" deviceset="*-PNP-" device="SOT23-BEC" technology="BC807-16" value="pnphv"/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="SV5" library="con-lsta" deviceset="FE06-2" device=""/>
 <part name="SV3" library="con-lsta" deviceset="FE06-2" device=""/>
@@ -22376,34 +22272,34 @@ Based on the following sources:
 <part name="SV1" library="con-lsta" deviceset="FE06-2" device=""/>
 <part name="SV2" library="con-lsta" deviceset="FE06-2" device=""/>
 <part name="J2" library="Mine" deviceset="DCJ0303" device="SMD"/>
-<part name="C22" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="Q3" library="crystal" deviceset="CRYSTAL" device="CTS406"/>
+<part name="C22" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="Q3" library="crystal" deviceset="CRYSTAL" device="CTS406" value="nc"/>
 <part name="SV4" library="Mine" deviceset="FE05-2W" device="ED"/>
 <part name="SV6" library="Mine" deviceset="FE06-1" device="ED"/>
 <part name="IC12" library="Mine" deviceset="MAX603" device=""/>
-<part name="C28" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C29" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C28" library="rcl" deviceset="C-EU" device="C0603" value="10u"/>
+<part name="C29" library="rcl" deviceset="C-EU" device="C0603" value="10u"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
-<part name="D8" library="diode" deviceset="CGRM400*-G" device="" technology="1"/>
-<part name="D9" library="diode" deviceset="CGRM400*-G" device="" technology="1"/>
+<part name="D8" library="diode" deviceset="DIODE-" device="SOD123"/>
+<part name="D9" library="diode" deviceset="DIODE-" device="SOD123"/>
 <part name="L2" library="wuerth-elektronik" deviceset="WE-CBF" device="_0805"/>
-<part name="C34" library="rcl" deviceset="CPOL-EU" device="SMCC"/>
+<part name="C34" library="rcl" deviceset="CPOL-EU" device="SMCC" value="nc"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="C35" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C35" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="C36" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="C36" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="100"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="X2" library="con-cypressindustries" deviceset="MINI-USB_4P-" device="85-32004-10X"/>
 <part name="IC1" library="Mine" deviceset="STM32F100CX" device="C"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="C20" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C21" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C25" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C26" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C20" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C21" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C25" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C26" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
@@ -22418,10 +22314,10 @@ Based on the following sources:
 <part name="SUPPLY5" library="supply2" deviceset="VPP" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="SJ2" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
-<part name="C23" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R9" library="rcl" deviceset="R-EU_" device="R0805"/>
+<part name="C23" library="rcl" deviceset="C-EU" device="C0603" value="nc"/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="R0805" value="nc"/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V11" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
@@ -22431,14 +22327,14 @@ Based on the following sources:
 <part name="U$2" library="Mine" deviceset="TPS2010A" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="C24" library="rcl" deviceset="C-EU" device="C1206"/>
+<part name="C24" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="SG2" library="buzzer" deviceset="F/CM12P" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="Q9" library="transistor-small-signal" deviceset="BSS123" device=""/>
-<part name="D10" library="diode" deviceset="CGRM400*-G" device="" technology="1"/>
-<part name="C18" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C27" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="D10" library="diode" deviceset="DIODE-" device="SOD123"/>
+<part name="C18" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C27" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="100K"/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="100K"/>
@@ -22447,25 +22343,25 @@ Based on the following sources:
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="D11" library="diode" deviceset="CGRM400*-G" device="" technology="1"/>
+<part name="D11" library="diode" deviceset="DIODE-" device="SOD123"/>
 <part name="U$10" library="IN8" deviceset="TLC59711" device=""/>
 <part name="U$11" library="IN8" deviceset="TLC59711" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY28" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY29" library="supply2" deviceset="GND1" device=""/>
-<part name="C50" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R30" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="C51" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="R31" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="C50" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="R30" library="rcl" deviceset="R-EU_" device="R0603" value="tbc"/>
+<part name="C51" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
+<part name="R31" library="rcl" deviceset="R-EU_" device="R0603" value="tbc"/>
 <part name="SUPPLY30" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY31" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY32" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY33" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY34" library="supply2" deviceset="VPP" device=""/>
 <part name="SUPPLY35" library="supply2" deviceset="VPP" device=""/>
-<part name="C52" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C53" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C52" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="C53" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="SUPPLY36" library="supply2" deviceset="GND1" device=""/>
 <part name="SUPPLY37" library="supply2" deviceset="GND1" device=""/>
 <part name="U$12" library="IN8" deviceset="RGBLED_PLCC6" device=""/>
@@ -22479,21 +22375,26 @@ Based on the following sources:
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="P+8" library="supply1" deviceset="+12V" device=""/>
 <part name="SUPPLY39" library="supply2" deviceset="+5V/4" device=""/>
-<part name="C54" library="rcl" deviceset="CPOL-EU" device="E2.5-6"/>
+<part name="C54" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="100u"/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
 <part name="SUPPLY21" library="supply2" deviceset="GND1" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="GND80" library="supply1" deviceset="GND" device=""/>
-<part name="R50" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R51" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="C92" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="C93" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="R50" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R51" library="rcl" deviceset="R-EU_" device="R0603" value="nc"/>
+<part name="C92" library="rcl" deviceset="C-EU" device="C0603" value="10u"/>
+<part name="C93" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="SJ3" library="SparkFun" deviceset="SOLDERJUMPER" device="NO"/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="F1" library="SparkFun" deviceset="PTC" device="PTH"/>
-<part name="R12" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="nc"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
+<part name="S1" library="Mine" deviceset="TAC_SWITCH" device=""/>
+<part name="S2" library="Mine" deviceset="TAC_SWITCH" device=""/>
+<part name="S3" library="Mine" deviceset="TAC_SWITCH" device=""/>
+<part name="S4" library="Mine" deviceset="TAC_SWITCH" device=""/>
+<part name="S5" library="Mine" deviceset="TAC_SWITCH" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -22504,6 +22405,10 @@ Based on the following sources:
 <text x="-96.52" y="43.18" size="1.778" layer="91">test reset</text>
 <text x="-157.48" y="48.26" size="1.778" layer="91">needed?</text>
 <text x="-101.6" y="63.5" size="1.778" layer="91" rot="R90">connect to vcc?</text>
+<text x="-119.38" y="33.02" size="1.778" layer="91">nc</text>
+<text x="264.16" y="238.76" size="1.778" layer="91">tbc</text>
+<text x="347.98" y="233.68" size="1.778" layer="91">tbc</text>
+<text x="83.82" y="200.66" size="1.778" layer="91">tbc</text>
 </plain>
 <instances>
 <instance part="IC2" gate="A" x="172.72" y="78.74"/>
@@ -22603,10 +22508,6 @@ Based on the following sources:
 <instance part="P+17" gate="1" x="-15.24" y="195.58"/>
 <instance part="C16" gate="G$1" x="-55.88" y="180.34"/>
 <instance part="C17" gate="G$1" x="-15.24" y="180.34"/>
-<instance part="S2" gate="S" x="17.78" y="-27.94" rot="R270"/>
-<instance part="S4" gate="S" x="30.48" y="-27.94" rot="R270"/>
-<instance part="S5" gate="S" x="43.18" y="-27.94" rot="R270"/>
-<instance part="S6" gate="S" x="5.08" y="-27.94" rot="R270"/>
 <instance part="C19" gate="G$1" x="86.36" y="200.66"/>
 <instance part="T1" gate="G$1" x="213.36" y="243.84"/>
 <instance part="T3" gate="G$1" x="335.28" y="243.84"/>
@@ -22767,6 +22668,11 @@ Based on the following sources:
 <instance part="F1" gate="G$1" x="-86.36" y="182.88"/>
 <instance part="R12" gate="G$1" x="48.26" y="106.68" rot="R90"/>
 <instance part="P+1" gate="1" x="48.26" y="114.3"/>
+<instance part="S1" gate="S" x="-10.16" y="-27.94" rot="R270"/>
+<instance part="S2" gate="S" x="2.54" y="-27.94" rot="R270"/>
+<instance part="S3" gate="S" x="15.24" y="-27.94" rot="R270"/>
+<instance part="S4" gate="S" x="27.94" y="-27.94" rot="R270"/>
+<instance part="S5" gate="S" x="40.64" y="-27.94" rot="R270"/>
 </instances>
 <busses>
 <bus name="DIGITS[0..9]">
@@ -24408,28 +24314,20 @@ Based on the following sources:
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
-<wire x1="40.64" y1="-22.86" x2="43.18" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-22.86" x2="40.64" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="-22.86" x2="5.08" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="-22.86" x2="15.24" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="-22.86" x2="17.78" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="-22.86" x2="27.94" y2="-22.86" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="-22.86" x2="30.48" y2="-22.86" width="0.1524" layer="91"/>
-<junction x="40.64" y="-22.86"/>
-<junction x="5.08" y="-22.86"/>
-<junction x="30.48" y="-22.86"/>
-<junction x="15.24" y="-22.86"/>
-<junction x="27.94" y="-22.86"/>
+<wire x1="27.94" y1="-22.86" x2="40.64" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="-22.86" x2="43.18" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="-22.86" x2="15.24" y2="-22.86" width="0.1524" layer="91"/>
 <junction x="17.78" y="-22.86"/>
-<pinref part="S2" gate="S" pin="1"/>
-<pinref part="S5" gate="S" pin="1"/>
-<pinref part="S5" gate="S" pin="2"/>
-<pinref part="S6" gate="S" pin="2"/>
-<pinref part="S6" gate="S" pin="1"/>
-<pinref part="S4" gate="S" pin="1"/>
-<pinref part="S4" gate="S" pin="2"/>
-<pinref part="S2" gate="S" pin="2"/>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
+<pinref part="S2" gate="S" pin="1"/>
+<pinref part="S3" gate="S" pin="1"/>
+<wire x1="15.24" y1="-22.86" x2="17.78" y2="-22.86" width="0.1524" layer="91"/>
+<junction x="15.24" y="-22.86"/>
+<pinref part="S4" gate="S" pin="1"/>
+<junction x="27.94" y="-22.86"/>
+<pinref part="S5" gate="S" pin="1"/>
+<junction x="40.64" y="-22.86"/>
 </segment>
 <segment>
 <wire x1="-96.52" y1="58.42" x2="-93.98" y2="58.42" width="0.1524" layer="91"/>
@@ -24727,9 +24625,8 @@ Based on the following sources:
 <segment>
 <wire x1="43.18" y1="-33.02" x2="40.64" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="-33.02" x2="40.64" y2="-40.64" width="0.1524" layer="91"/>
+<pinref part="S5" gate="S" pin="2"/>
 <junction x="40.64" y="-33.02"/>
-<pinref part="S5" gate="S" pin="3"/>
-<pinref part="S5" gate="S" pin="4"/>
 </segment>
 </net>
 <net name="BUT1" class="0">
@@ -24740,9 +24637,8 @@ Based on the following sources:
 <segment>
 <wire x1="2.54" y1="-40.64" x2="2.54" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="-33.02" x2="2.54" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="S2" gate="S" pin="2"/>
 <junction x="2.54" y="-33.02"/>
-<pinref part="S6" gate="S" pin="4"/>
-<pinref part="S6" gate="S" pin="3"/>
 </segment>
 </net>
 <net name="BUT2" class="0">
@@ -24753,9 +24649,8 @@ Based on the following sources:
 <segment>
 <wire x1="27.94" y1="-40.64" x2="27.94" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="-33.02" x2="27.94" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="S4" gate="S" pin="2"/>
 <junction x="27.94" y="-33.02"/>
-<pinref part="S4" gate="S" pin="4"/>
-<pinref part="S4" gate="S" pin="3"/>
 </segment>
 </net>
 <net name="BUT3" class="0">
@@ -24766,9 +24661,8 @@ Based on the following sources:
 <segment>
 <wire x1="15.24" y1="-33.02" x2="15.24" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="-33.02" x2="15.24" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="S3" gate="S" pin="2"/>
 <junction x="15.24" y="-33.02"/>
-<pinref part="S2" gate="S" pin="4"/>
-<pinref part="S2" gate="S" pin="3"/>
 </segment>
 </net>
 <net name="N$4" class="0">
