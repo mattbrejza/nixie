@@ -1,0 +1,168 @@
+Partlist
+
+Exported from nixie.sch at 04/05/2013 17:16:06
+
+EAGLE Version 6.2.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value                    Device                   Package          Library                 Sheet
+
+BAT1                              2032                     COIN             Mine                    1
+C1       100n                     C-EUC0603                C0603            rcl                     1
+C2       nc                       C-EUC0603                C0603            rcl                     1
+C3       nc                       C-EUC0603                C0603            rcl                     1
+C4       100n                     C-EUC0603                C0603            rcl                     1
+C5       nc                       C-EUC0603                C0603            rcl                     1
+C6       2.2u 250V                CPOL-EUE2.5-6            E2,5-6           rcl                     1
+C7       100n                     C-EUC0603                C0603            rcl                     1
+C8       100n                     C-EUC0603                C0603            rcl                     1
+C9       100n                     C-EUC0603                C0603            rcl                     1
+C10      100n                     C-EUC0603                C0603            rcl                     1
+C11      100n                     C-EUC0603                C0603            rcl                     1
+C12      100n                     C-EUC0603                C0603            rcl                     1
+C13      100n                     C-EUC0603                C0603            rcl                     1
+C14      100n                     C-EUC0603                C0603            rcl                     1
+C15      100n                     C-EUC0603                C0603            rcl                     1
+C16      10u                      C-EUC0603                C0603            rcl                     1
+C17      10u                      C-EUC0603                C0603            rcl                     1
+C18      100n                     C-EUC0603                C0603            rcl                     1
+C19                               C-EUC0603                C0603            rcl                     1
+C20      100n                     C-EUC0603                C0603            rcl                     1
+C21      100n                     C-EUC0603                C0603            rcl                     1
+C22      100n                     C-EUC0603                C0603            rcl                     1
+C23      nc                       C-EUC0603                C0603            rcl                     1
+C24      100n                     C-EUC1206                C1206            rcl                     1
+C25      100n                     C-EUC0603                C0603            rcl                     1
+C26      100n                     C-EUC0603                C0603            rcl                     1
+C27      100n                     C-EUC0603                C0603            rcl                     1
+C28      10u                      C-EUC0603                C0603            rcl                     1
+C29      10u                      C-EUC0603                C0603            rcl                     1
+C34      nc                       CPOL-EUSMCC              SMC_C            rcl                     1
+C35      100n                     C-EUC0603                C0603            rcl                     1
+C36      100n                     C-EUC0603                C0603            rcl                     1
+C50      1u                       C-EUC0603                C0603            rcl                     1
+C51      1u                       C-EUC0603                C0603            rcl                     1
+C52      100n                     C-EUC0603                C0603            rcl                     1
+C53      100n                     C-EUC0603                C0603            rcl                     1
+C54      100u                     CPOL-EUE2.5-6            E2,5-6           rcl                     1
+C92      10u                      C-EUC0603                C0603            rcl                     1
+C93      100n                     C-EUC0603                C0603            rcl                     1
+D1       1N5059                   DIODE-C1702-05           C1702-05         diode                   1
+D2       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D3       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D4       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D5       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D6       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D7       1n4148                   DIODESOD                 SOD-323          SparkFun                1
+D8       CGRM4001-G               CGRM4001-G               SOD-123_MINI-SMA diode                   1
+D9       CGRM4001-G               CGRM4001-G               SOD-123_MINI-SMA diode                   1
+D10      CGRM4001-G               CGRM4001-G               SOD-123_MINI-SMA diode                   1
+D11      CGRM4001-G               CGRM4001-G               SOD-123_MINI-SMA diode                   1
+F1       PTCPTH                   PTCPTH                   PTC              SparkFun                1
+IC1      STM32F100CXC             STM32F100CXC             SQFP-S-7X7-48    Mine                    1
+IC2      74141N                   74141N                   DIL16            74xx-us                 1
+IC3      DS3234                   DS3234                   SO20W            Mine                    1
+IC4      MAX1771                  MAX1771                  SO08             Mine                    1
+IC6      74HCT164D                74HCT164D                SO14             74xx-eu                 1
+IC7      DS18B20                  DS18B20                  TO92-            1wire                   1
+IC8      MAX603                   MAX603                   SO08             Mine                    1
+IC12     MAX603                   MAX603                   SO08             Mine                    1
+J2                                DCJ0303SMD               SMD_JACK         Mine                    1
+L1       100u                     BS11                     BS11             inductor-neosid         1
+L2                                WE-CBF_0805              0805             wuerth-elektronik       1
+N2       IN-3                     IN-3                     IN-3             russian-nixies-mod      1
+N3       IN-3                     IN-3                     IN-3             russian-nixies-mod      1
+N4       IN-8                     IN-8                     IN-8             IN8                     1
+N5       IN-8                     IN-8                     IN-8             IN8                     1
+N6       IN-8                     IN-8                     IN-8             IN8                     1
+N7       IN-8                     IN-8                     IN-8             IN8                     1
+N8       IN-16                    IN-16                    IN-16            russian-nixies          1
+N9       IN-16                    IN-16                    IN-16            russian-nixies          1
+N10      IN-3                     IN-3                     IN-3             russian-nixies-mod      1
+N11      IN-3                     IN-3                     IN-3             russian-nixies-mod      1
+Q1       BUZ11BH                  BUZ11BH                  TO220BH          Mine                    1
+Q3       nc                       CRYSTALCTS406            CTS406           crystal                 1
+Q9       BSS123                   BSS123                   SOT23            transistor-small-signal 1
+R1       10k                      R-EU_R0603               R0603            rcl                     1
+R2       100                      R-EU_R0603               R0603            rcl                     1
+R3       1k                       R-EU_R0603               R0603            rcl                     1
+R4       0.05                     SMR-WAV                  SMS-WAV          resistor-shunt          1
+R5       1M5                      R-EU_R0603               R0603            rcl                     1
+R6       10k                      R-EU_R0603               R0603            rcl                     1
+R7       4k7 trim                 R-TRIMM3314J             RTRIM3314J       rcl                     1
+R8       22k                      R-EU_R0805               R0805            rcl                     1
+R9       nc                       R-EU_R0805               R0805            rcl                     1
+R10      100K                     R-EU_R0603               R0603            rcl                     1
+R11      100K                     R-EU_R0603               R0603            rcl                     1
+R12      nc                       R-EU_R0603               R0603            rcl                     1
+R13      22k                      R-EU_R0805               R0805            rcl                     1
+R14      1M                       R-EU_R0603               R0603            rcl                     1
+R15      47k                      R-EU_R0603               R0603            rcl                     1
+R16      1M                       R-EU_R0603               R0603            rcl                     1
+R17      47k                      R-EU_R0603               R0603            rcl                     1
+R18      1M                       R-EU_R0603               R0603            rcl                     1
+R19      47k                      R-EU_R0603               R0603            rcl                     1
+R20      1M                       R-EU_R0603               R0603            rcl                     1
+R21      47k                      R-EU_R0603               R0603            rcl                     1
+R22      1M                       R-EU_R0603               R0603            rcl                     1
+R23      47k                      R-EU_R0603               R0603            rcl                     1
+R24      1M                       R-EU_R0603               R0603            rcl                     1
+R25      47k                      R-EU_R0603               R0603            rcl                     1
+R26                               R-EU_R0603               R0603            rcl                     1
+R27                               R-EU_R0603               R0603            rcl                     1
+R28                               R-EU_R0603               R0603            rcl                     1
+R29                               R-EU_R0603               R0603            rcl                     1
+R30      tbc                      R-EU_R0603               R0603            rcl                     1
+R31      tbc                      R-EU_R0603               R0603            rcl                     1
+R36      10k                      R-EU_R0603               R0603            rcl                     1
+R37      10k                      R-EU_R0603               R0603            rcl                     1
+R38      220k                     R-EU_R0603               R0603            rcl                     1
+R39      200k                     R-EU_R0603               R0603            rcl                     1
+R40      200k                     R-EU_R0603               R0603            rcl                     1
+R41      200k                     R-EU_R0603               R0603            rcl                     1
+R50      10k                      R-EU_R0603               R0603            rcl                     1
+R51      nc                       R-EU_R0603               R0603            rcl                     1
+S2                                TAC_SWITCHPTH            TACTILE-PTH      SparkFun                1
+S4                                TAC_SWITCHPTH            TACTILE-PTH      SparkFun                1
+S5                                TAC_SWITCHPTH            TACTILE-PTH      SparkFun                1
+S6                                TAC_SWITCHPTH            TACTILE-PTH      SparkFun                1
+SG2      F/CM12P                  F/CM12P                  F/CM12P          buzzer                  1
+SJ1                               SOLDERJUMPER_2WAYS       SJ_3             SparkFun                1
+SJ2      SOLDERJUMPERNO           SOLDERJUMPERNO           SJ_2S-NO         SparkFun                1
+SJ3      SOLDERJUMPERNO           SOLDERJUMPERNO           SJ_2S-NO         SparkFun                1
+SV1                               FE06-2                   FE06-2           con-lsta                1
+SV2                               FE06-2                   FE06-2           con-lsta                1
+SV3                               FE06-2                   FE06-2           con-lsta                1
+SV4                               FE05-2WED                EDGE_10          Mine                    1
+SV5                               FE06-2                   FE06-2           con-lsta                1
+SV6                               FE06-1ED                 EDGE_6           Mine                    1
+SV7                               MA04-1E                  EDGE_4           Mine                    1
+T1       pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T2       npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T3       pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T4       npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T5       pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T6       npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T7       pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T8       npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T9       pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T10      npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T11      pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T12      npnhvsmd                 TRANSISTOR_NPNSOT23-3    SOT23-3          SparkFun                1
+T13      pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T14      pnphv                    BC807-16-PNP-SOT23-BEC   SOT23-BEC        transistor              1
+T21      npnhvth                  -NPN-TO92-EBC            TO92-EBC         transistor              1
+T22      npnhvth                  -NPN-TO92-EBC            TO92-EBC         transistor              1
+U$1      IRREC                    IRREC                    IRREC            Mine                    1
+U$2      TPS2010A                 TPS2010A                 SO-08            Mine                    1
+U$3      DPDTSLIDE                DPDTSLIDE                DPDTSLIDE        Mine                    1
+U$10     TLC59711                 TLC59711                 HTSSOP20PWP      IN8                     1
+U$11     TLC59711                 TLC59711                 HTSSOP20PWP      IN8                     1
+U$12     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+U$13     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+U$14     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+U$15     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+U$16     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+U$17     RGBLED_PLCC6             RGBLED_PLCC6             PLCC6            IN8                     1
+X2       MINI-USB_4P-85-32004-10X MINI-USB_4P-85-32004-10X 85-32004-10X     con-cypressindustries   1

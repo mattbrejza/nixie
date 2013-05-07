@@ -13284,11 +13284,11 @@ abgedichtet nach &lt;b&gt;IP67&lt;/b&gt;</description>
 <packages>
 <package name="DIL16">
 <description>&lt;b&gt;Dual In Line Package&lt;/b&gt;</description>
-<wire x1="10.16" y1="2.921" x2="-10.16" y2="2.921" width="0.1524" layer="21"/>
-<wire x1="-10.16" y1="-2.921" x2="10.16" y2="-2.921" width="0.1524" layer="21"/>
-<wire x1="10.16" y1="2.921" x2="10.16" y2="-2.921" width="0.1524" layer="21"/>
-<wire x1="-10.16" y1="2.921" x2="-10.16" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-10.16" y1="-2.921" x2="-10.16" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="10.16" y1="2.121" x2="-10.16" y2="2.121" width="0.1524" layer="21"/>
+<wire x1="-10.16" y1="-2.121" x2="10.16" y2="-2.121" width="0.1524" layer="21"/>
+<wire x1="10.16" y1="2.121" x2="10.16" y2="-2.121" width="0.1524" layer="21"/>
+<wire x1="-10.16" y1="2.121" x2="-10.16" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-10.16" y1="-2.121" x2="-10.16" y2="-1.016" width="0.1524" layer="21"/>
 <wire x1="-10.16" y1="1.016" x2="-10.16" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
 <pad name="1" x="-8.89" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
 <pad name="2" x="-6.35" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
@@ -21609,10 +21609,9 @@ Source: 008-0260-0_E.pdf</description>
 <packages>
 <package name="IN-8">
 <description>May be used with socket: &lt;b&gt;11-pin- Russian&lt;/b&gt;</description>
-<wire x1="-6.3585" y1="0.0872" x2="6.1447" y2="0.0519" width="0.127" layer="21" curve="-179.999084"/>
-<wire x1="-6.35" y1="0" x2="6.1913" y2="0" width="0.254" layer="21" curve="-180"/>
-<circle x="0" y="0" radius="8.5" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="8.5" width="0.254" layer="21"/>
+<wire x1="-6.67" y1="0.05" x2="6.4413" y2="0.02" width="0.254" layer="21" curve="-180"/>
+<circle x="0" y="0" radius="8.5" width="0.127" layer="51"/>
+<circle x="0" y="0" radius="8.5" width="0.254" layer="51"/>
 <circle x="-0.0083" y="0" radius="5" width="0.127" layer="51"/>
 <pad name="8" x="-4.0084" y="2.8622" drill="1.6" diameter="2.1" shape="octagon" rot="R356"/>
 <pad name="7" x="-1.9283" y="4.5192" drill="1.6" diameter="2.2" shape="octagon"/>
