@@ -22146,7 +22146,7 @@ Based on the following sources:
 <instance part="SUPPLY20" gate="G$1" x="424.18" y="220.98"/>
 <instance part="SV1" gate="G$1" x="320.04" y="137.16"/>
 <instance part="SV2" gate="G$1" x="215.9" y="76.2"/>
-<instance part="J2" gate="G$1" x="-129.54" y="180.34"/>
+<instance part="J2" gate="G$1" x="-127" y="180.34"/>
 <instance part="C22" gate="G$1" x="-5.08" y="182.88"/>
 <instance part="Q3" gate="G$1" x="25.4" y="-5.08" rot="R90"/>
 <instance part="SV4" gate="G$1" x="266.7" y="-27.94"/>
@@ -22370,9 +22370,9 @@ Based on the following sources:
 </segment>
 <segment>
 <wire x1="-116.84" y1="177.8" x2="-116.84" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="-121.92" y1="180.34" x2="-116.84" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="180.34" x2="-116.84" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="-116.84" y1="180.34" x2="-116.84" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="-116.84" y1="177.8" x2="-121.92" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="177.8" x2="-119.38" y2="177.8" width="0.1524" layer="91"/>
 <junction x="-116.84" y="177.8"/>
 <pinref part="GND30" gate="1" pin="GND"/>
 <pinref part="J2" gate="G$1" pin="1"/>
@@ -24773,7 +24773,6 @@ Based on the following sources:
 <pinref part="J2" gate="G$1" pin="3"/>
 <pinref part="J2" gate="G$1" pin="4"/>
 <wire x1="-114.3" y1="182.88" x2="-91.44" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="182.88" x2="-121.92" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$49" class="0">
