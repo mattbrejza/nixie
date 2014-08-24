@@ -66,6 +66,8 @@
 #define D_PORT     GPIOB
 #define D_PIN      GPIO9
 
+#define ABCD_MASK  (GPIO6 | GPIO7 | GPIO8 | GPIO9)
+
 #define NDAT_PORT  GPIOB
 #define NDAT_PIN   GPIO10
 
