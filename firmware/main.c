@@ -34,7 +34,8 @@ int main(void)
 
 	digits_bcd = 0x263134;
 
-	GPIO_BRR(HV_PORT) = HV_PIN;	//Turn off HV
+	GPIO_BRR(HV_PORT) = HV_PIN;	//Turn on HV
+	GPIO_BSRR(CC1_PORT) = CC1_PIN;
 
 	while(1)
 	{
