@@ -34,20 +34,17 @@ int main(void)
 
 	digits_bcd = 0x263134;
 
-	GPIO_BRR(HV_PORT) = HV_PIN;	//Turn on HV
+	//GPIO_BRR(HV_PORT) = HV_PIN;	//Turn on HV
+	GPIOB_BSRR = (1<<5)<<16;
+	//gpio_clear(HV_PORT,HV_PIN);	//Turn on HV
 	GPIO_BSRR(CC1_PORT) = CC1_PIN;
 
-	while(1)
-	{
 
-		increment_digit();
-		_delay_ms(1);
-	}
 
-    while(1)
+    //while(1)
     {
-    	void format_packet(uint8_t *buff, uint8_t bc_blue, uint8_t bc_green, uint8_t bc_red,
-    			uint16_t *blues , uint16_t *greens , uint16_t *reds);
+    	//void format_packet(uint8_t *buff, uint8_t bc_blue, uint8_t bc_green, uint8_t bc_red,
+    	//		uint16_t *blues , uint16_t *greens , uint16_t *reds);
 
     	uint16_t ledsr[] = {0xFFFF,0xFFFF,0xFFFF,0xFFFF};
     	uint16_t ledsg[] = {0xFFFF,0xFFFF,0xFFFF,0xFFFF};
@@ -65,12 +62,19 @@ int main(void)
 
 
     }
+
+    while(1)
+	{
+
+		increment_digit();
+		_delay_ms(1);
+	}
 }
 
 
 void increment_digit(void)
 {
-	GPIO_BRR(NDAT_PORT) = NDAT_PIN;
+	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
 	digit_pos++;
 	uint8_t i;
 	GPIO_ODR(A_PORT) = (GPIO_ODR(A_PORT) & ~ABCD_MASK);
@@ -86,8 +90,8 @@ void increment_digit(void)
 
 	GPIO_BSRR(NCLK_PORT) = NCLK_PIN;
 	__asm__("nop");
-	GPIO_BRR(NDAT_PORT) = NDAT_PIN;
-	GPIO_BRR(NCLK_PORT) = NCLK_PIN;
+	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
+	GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 
 //	for (i = 0; i < 15; i++)
 //		__asm__("nop");
@@ -102,15 +106,15 @@ void increment_digit(void)
 
 void reset_digits(void)
 {
-	GPIO_BRR(NDAT_PORT) = NDAT_PIN;
-	GPIO_BRR(NCLK_PORT) = NCLK_PIN;
+	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
+	GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 	uint8_t i;
 	for(i = 0; i < 8; i++)
 	{
 		GPIO_BSRR(NCLK_PORT) = NCLK_PIN;
 		__asm__("nop");
 		__asm__("nop");
-		GPIO_BRR(NCLK_PORT) = NCLK_PIN;
+		GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 		__asm__("nop");
 		__asm__("nop");
 	}
@@ -143,6 +147,7 @@ void init(void)
 	gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, RTCCS_PIN);
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, TX_PIN | MOSI_PIN
 			| SCLK_PIN);
+	gpio_set_af(GPIOA, GPIO_AF0, MOSI_PIN | SCLK_PIN);
 
 	//GPIOB inputs
 	gpio_mode_setup(GPIOB, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, S3_PIN
@@ -150,6 +155,7 @@ void init(void)
 
 	//SPI port (LEDs)
 	rcc_periph_clock_enable(RCC_SPI1);
+
 	spi_reset(LED_SPI);
 	spi_init_master(LED_SPI, SPI_CR1_BAUDRATE_FPCLK_DIV_64,
 			SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE,
