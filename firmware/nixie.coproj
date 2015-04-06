@@ -142,8 +142,13 @@
   </Target>
   <Components path="./"/>
   <Files>
-    <File name="tlc79711.h" path="tlc79711.h" type="1"/>
+    <File name="tlc59711.h" path="tlc59711.h" type="1"/>
+    <File name="ds3234.c" path="ds3234.c" type="1"/>
+    <File name="bcd_maths.c" path="bcd_maths.c" type="1"/>
+    <File name="pindef.h" path="pindef.h" type="1"/>
+    <File name="tlc59711.c" path="tlc59711.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
-    <File name="tlc79711.c" path="tlc79711.c" type="1"/>
+    <File name="bcd_maths.h" path="bcd_maths.h" type="1"/>
+    <File name="ds3234.h" path="ds3234.h" type="1"/>
   </Files>
 </Project>

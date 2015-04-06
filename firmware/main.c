@@ -6,77 +6,310 @@
 #include <libopencm3/stm32/adc.h>
 #include <libopencm3/stm32/usart.h>
 #include <libopencm3/stm32/dma.h>
+#include <libopencm3/stm32/exti.h>
+#include <libopencm3/stm32/flash.h>
+#include <libopencm3/cm3/systick.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include <pindef.h>
-#include <tlc79711.h>
+#include "pindef.h"
+#include "tlc59711.h"
+#include "ds3234.h"
+#include "bcd_maths.h"
 
 void init(void);
 void _delay_ms(const uint32_t delay);
 void reinit_spi_dma(uint8_t *mem_addr, uint16_t bytes);
 void increment_digit(void);
 void reset_digits(void);
+void wait_button_release(void);
+void update_leds(void);
+uint8_t wait_button_timeout(void);
 
-const uint8_t buff_test[] = {0xFF, 8, 8, 0, 0xFF, 8, 0, 8, 0xFF, 8};
+//const uint8_t buff_test[] = {0xFF, 8, 8, 0, 0xFF, 8, 0, 8, 0xFF, 8};
 
 uint8_t buff_led[56];
 
-//const uint8_t led_lut[] = {9,8,7,6,5,4,};
-volatile uint32_t digits_bcd = 0;
+uint32_t led_values[] = {0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00FFFF};
+
+static volatile uint16_t led_h = 0;
+static volatile uint16_t led_s = 180;
+static volatile uint8_t led_change_count = 0;
+static volatile uint8_t led_pause = 0;
+#define LED_FADE_MODE_MAX 3
+static volatile uint8_t led_fade_mode = 0;
+
+uint8_t led_mask = 0x3F;
+
+
 volatile uint8_t digit_pos = 0;
+
+
+volatile uint32_t digits_time;
+volatile uint32_t digits_date;
+volatile uint32_t digits_set_time;
+volatile uint32_t digits_set_date;
+
+volatile uint16_t date_countdown = 0;
+volatile uint32_t delay_countdown = 0;
+
+const uint8_t gb_r = 0x5;
+const uint8_t gb_g = 0x2;
+const uint8_t gb_b = 0x5;
+
+
+typedef enum {TIME, DATE, SET_TIME, SET_DATE} ui_main_t;
+ui_main_t ui_main = TIME;
+uint8_t set_digit_pair = 0;
+
 
 int main(void)
 {
 	init();
 
-	digits_bcd = 0x263134;
+
 
 	//GPIO_BRR(HV_PORT) = HV_PIN;	//Turn on HV
 	GPIOB_BSRR = (1<<5)<<16;
 	//gpio_clear(HV_PORT,HV_PIN);	//Turn on HV
 	GPIO_BSRR(CC1_PORT) = CC1_PIN;
+	GPIO_BSRR(CC2_PORT) = CC2_PIN;
 
 
-
-    //while(1)
-    {
-    	//void format_packet(uint8_t *buff, uint8_t bc_blue, uint8_t bc_green, uint8_t bc_red,
-    	//		uint16_t *blues , uint16_t *greens , uint16_t *reds);
-
-    	uint16_t ledsr[] = {0xFFFF,0xFFFF,0xFFFF,0xFFFF};
-    	uint16_t ledsg[] = {0xFFFF,0xFFFF,0xFFFF,0xFFFF};
-    	uint16_t ledsb[] = {0xFFFF,0xFFFF,0xFFFF,0xFFFF};
-
-    	format_packet(buff_led, 0x2, 0x2F, 0x2F, ledsb,ledsg,ledsr);
-    	format_packet(&buff_led[28], 0x2F, 0x2F, 0x2F, ledsb,ledsg,ledsr);
-    	//spi_test(0x5F);
-    	reinit_spi_dma(buff_led, 56);
-    	spi_enable_tx_dma(LED_SPI);
-  //  	GPIO_BSRR(BUZZ_PORT) = BUZZ_PIN | R_MO_PIN;
-    	_delay_ms(100);
-  //  	GPIO_BRR(BUZZ_PORT) = BUZZ_PIN | R_MO_PIN;
-    	_delay_ms(1);
+	update_leds();
+    if(ds3234_check_valid_time() == 0)
+    	ds3234_write_time_bcd(0x100110);
+    if(ds3234_check_valid_date() == 0)
+		ds3234_write_date_bcd(0x010415);
 
 
-    }
+	digits_time = ds3234_read_time_bcd();
+	digits_date = ds3234_read_date_bcd();
 
+    uint8_t fast_inc = 0;
     while(1)
 	{
 
-		increment_digit();
-		_delay_ms(1);
+    	switch(ui_main){
+    		case TIME:
+    			if (gpio_get(S3_PORT,S3_PIN)){         //DATE/TIME button
+    				ui_main = DATE;
+    				date_countdown = 5000;
+    			}
+				else if (gpio_get(S2_PORT,S2_PIN)) {  //SET button
+					ui_main = SET_TIME;
+					set_digit_pair = 0;
+					digits_set_time = digits_time;
+					led_mask = 0x30;
+					update_leds();
+					wait_button_release();
+				}
+				else if (gpio_get(S1_PORT,S1_PIN)) {  //pause button
+					led_pause = 1-led_pause;
+					wait_button_release();
+				}else if (gpio_get(S4_PORT,S4_PIN)) //colour button
+		    	{
+		    		led_fade_mode++;
+		    		if (led_fade_mode >= LED_FADE_MODE_MAX)
+		    			led_fade_mode = 0;
+		    		led_pause = 0;
+		    		wait_button_release();
+		    	}
+    			break;
+    		case DATE:
+    			if (gpio_get(S2_PORT,S2_PIN)) {  //SET button
+					ui_main = SET_DATE;
+					set_digit_pair = 0;
+					digits_set_date = digits_date;
+					led_mask = 0x30;
+					update_leds();
+					wait_button_release();
+				}
+    			break;
+    		case SET_TIME:
+    			if (gpio_get(S2_PORT,S2_PIN)) {  //SET button
+					set_digit_pair++;
+					led_mask >>= 2;
+					if (set_digit_pair == 3){
+						ui_main = TIME;
+						ds3234_write_time_bcd(digits_set_time);
+						digits_time = digits_set_time;
+						led_mask = 0x3F;
+					}
+					update_leds();
+					wait_button_release();
+				}else if(gpio_get(S1_PORT,S1_PIN)) //INC
+				{
+					digits_set_time = bcd_time_inc(digits_set_time,0x10000>>(set_digit_pair*8),0);
+					if (fast_inc == 0)
+						fast_inc = wait_button_timeout();
+					else
+						_delay_ms(100);
+				}
+				else
+					fast_inc = 0;
+
+    			break;
+
+    		case SET_DATE:
+    			if (gpio_get(S2_PORT,S2_PIN)) {  //SET button
+					set_digit_pair++;
+					led_mask >>= 2;
+					if (set_digit_pair == 3){
+						ui_main = DATE;
+						date_countdown = 5000;
+						ds3234_write_date_bcd(digits_set_date);
+						digits_date = digits_set_date;
+						led_mask = 0x3F;
+					}
+					update_leds();
+					wait_button_release();
+				}else if(gpio_get(S1_PORT,S1_PIN)) //INC
+				{
+					digits_set_date = bcd_date_inc(digits_set_date,0x10000>>(set_digit_pair*8),0);
+					if (fast_inc == 0)
+						fast_inc = wait_button_timeout();
+					else
+						_delay_ms(100);
+				}
+				else
+					fast_inc = 0;
+    			break;
+    		default:
+    			break;
+    	}
+
+	}
+}
+
+uint8_t wait_button_timeout(void)
+//returns 1 if timeout has occured
+{
+	uint8_t c=0;
+	uint8_t t = 200;
+	while((c < 3) && (t > 0))
+	{
+		if ((gpio_get(S3_PORT,S3_PIN)>0) || (gpio_get(S2_PORT,S2_PIN)>0) || (gpio_get(S1_PORT,S1_PIN)>0))
+			c = 0;
+		else
+			c++;
+		_delay_ms(5);
+		t--;
+	}
+	if (t == 0)
+		return 1;
+	else
+		return 0;
+}
+
+void wait_button_release(void)
+{
+	uint8_t c=0;
+	while(c < 3)
+	{
+		if ((gpio_get(S3_PORT,S3_PIN)>0) || (gpio_get(S2_PORT,S2_PIN)>0) || (gpio_get(S4_PORT,S4_PIN)>0) || (gpio_get(S1_PORT,S1_PIN)>0))
+			c = 0;
+		else
+			c++;
+		_delay_ms(5);
+	}
+}
+
+void update_leds(void)
+{
+	format_packet_nixie(buff_led, gb_r, gb_g, gb_b, led_values, led_mask);
+	reinit_spi_dma(buff_led, 56);
+	spi_enable_tx_dma(LED_SPI);
+}
+
+void sys_tick_handler(void)
+{
+	increment_digit();
+
+	if (date_countdown){
+		date_countdown--;
+		if ((date_countdown == 0) &&(ui_main == DATE))
+			ui_main = TIME;
+	}
+
+	if (delay_countdown)
+		delay_countdown--;
+
+
+	if (led_change_count == 0)
+	{
+		led_change_count = 100;
+
+		uint8_t i;
+		uint16_t v;
+		uint32_t v1;
+
+		led_h += 1;
+		if (led_h >= 360)
+			led_h = led_h-360;
+		switch(led_fade_mode)
+		{
+			case 0:                 //sweeping gradient
+				v = led_h;
+				for (i = 0; i < 6; i++){
+					led_values[i] = hsv_to_rgb((uint16_t)v,255,255);
+					v+= 14;
+					if (v >= 360)
+						v -= 360;
+				}
+				break;
+			case 2:               //continuous gradient
+				if (led_h == 61){
+					if (led_s < 200)
+						led_s = 220;
+					else
+						led_s = 180;
+				}
+			case 1:
+				if (led_fade_mode == 1)
+					v1 = hsv_to_rgb(led_h,255,255);
+				else
+					v1 = hsv_to_rgb(led_h,led_s,255);
+				for (i = 0; i < 6; i++)
+					led_values[i] = v1;
+				break;
+
+		}
+
+		//led_values[5] = hsv_to_rgb(led_h,255,255);
+		update_leds();
+
+	}
+	if (led_pause == 0)
+		led_change_count--;
+}
+
+void exti4_15_isr(void)
+{
+	if ((EXTI_PR & (GPIO8)) != 0)
+	{
+		digits_time = bcd_time_inc(digits_time,1,1);
+
+		uint32_t dst = ds3234_read_time_bcd();
+		if (dst != digits_time)
+			digits_time = dst;
+
+		uint32_t dsd = ds3234_read_date_bcd();
+			digits_date = dsd;
+
+		if ((EXTI_PR & (GPIO8)) != 0)
+			EXTI_PR |= (GPIO8);
 	}
 }
 
 
 void increment_digit(void)
 {
+	GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
 	digit_pos++;
-	uint8_t i;
 	GPIO_ODR(A_PORT) = (GPIO_ODR(A_PORT) & ~ABCD_MASK);
 
 	if (digit_pos >= 6)
@@ -91,10 +324,26 @@ void increment_digit(void)
 	GPIO_BSRR(NCLK_PORT) = NCLK_PIN;
 	__asm__("nop");
 	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
-	GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 
-//	for (i = 0; i < 15; i++)
-//		__asm__("nop");
+
+	uint32_t digits_bcd;
+	switch(ui_main){
+		case TIME:
+			digits_bcd = digits_time;
+			break;
+		case DATE:
+			digits_bcd = digits_date;
+			break;
+		case SET_TIME:
+			digits_bcd = digits_set_time;
+			break;
+		case SET_DATE:
+			digits_bcd = digits_set_date;
+			break;
+		default:
+			digits_bcd = 0xFFFFFF;
+			break;
+	}
 
 	uint32_t digit = (digits_bcd >> (4*(5-digit_pos))) & 0xF;
 	digit = (9-digit) << 6;
@@ -123,12 +372,8 @@ void reset_digits(void)
 void init(void)
 {
 
-	//rcc_clock_setup_in_hsi_out_24mhz();
-
 	rcc_periph_clock_enable(RCC_GPIOA);
 	rcc_periph_clock_enable(RCC_GPIOB);
-
-
 
 #if defined(STM32F0)
 	rcc_periph_clock_enable(RCC_DMA);
@@ -141,7 +386,7 @@ void init(void)
 	//GPIOA inputs
 	gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, S1_PIN | S2_PIN
 			| R_MI_PIN | RX_PIN);
-	gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLUP, IR_PIN );
+	gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLUP, IR_PIN  | PPS_PIN);
 
 	//GPIOA outputs
 	gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, RTCCS_PIN);
@@ -167,6 +412,24 @@ void init(void)
 	spi_set_nss_high(LED_SPI);
 	//spi_enable_tx_dma(LED_SPI);
 	spi_enable(LED_SPI);
+
+
+	//enable IRQ on square wave input
+	//enable interrupts (just on one input)
+	RCC_APB2ENR |= (1<<0);
+	exti_select_source(EXTI8, GPIOA);
+	exti_set_trigger(EXTI8, EXTI_TRIGGER_RISING);
+	exti_enable_request(EXTI8);
+	nvic_enable_irq(NVIC_EXTI4_15_IRQ);
+
+	rcc_clock_setup_in_hsi_out_8mhz();
+
+	//systick
+	systick_set_clocksource(STK_CSR_CLKSOURCE_AHB);
+	systick_set_reload(7999);
+	systick_interrupt_enable();
+	systick_counter_enable();
+
 
 
 
@@ -218,6 +481,7 @@ void init(void)
 #endif
 
 	reset_digits();
+	ds3234_enable_1hz_out();
 
 }
 
@@ -242,9 +506,6 @@ void reinit_spi_dma(uint8_t *mem_addr, uint16_t bytes)
 
 void _delay_ms(const uint32_t delay)
 {
-    uint32_t i, j;
-
-    for(i=0; i< delay; i++)
-        for(j=0; j<600; j++)
-            __asm__("nop");
+	delay_countdown = delay;
+	while(delay_countdown);
 }
