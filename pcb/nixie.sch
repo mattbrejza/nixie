@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -22018,6 +22018,43 @@ Based on the following sources:
 <text x="264.16" y="238.76" size="1.778" layer="91">tbc</text>
 <text x="347.98" y="233.68" size="1.778" layer="91">tbc</text>
 <text x="83.82" y="200.66" size="1.778" layer="91">tbc</text>
+<wire x1="237.49" y1="257.81" x2="237.49" y2="256.54" width="0.1524" layer="97"/>
+<wire x1="237.49" y1="256.54" x2="238.76" y2="256.54" width="0.1524" layer="97"/>
+<wire x1="238.76" y1="256.54" x2="238.76" y2="252.73" width="0.1524" layer="97"/>
+<wire x1="238.76" y1="252.73" x2="237.49" y2="252.73" width="0.1524" layer="97"/>
+<wire x1="237.49" y1="252.73" x2="236.22" y2="252.73" width="0.1524" layer="97"/>
+<wire x1="236.22" y1="252.73" x2="236.22" y2="256.54" width="0.1524" layer="97"/>
+<wire x1="236.22" y1="256.54" x2="237.49" y2="256.54" width="0.1524" layer="97"/>
+<wire x1="237.49" y1="257.81" x2="241.3" y2="257.81" width="0.1524" layer="97"/>
+<wire x1="241.3" y1="257.81" x2="241.3" y2="259.08" width="0.1524" layer="97"/>
+<wire x1="330.2" y1="273.05" x2="330.2" y2="271.78" width="0.1524" layer="97"/>
+<wire x1="330.2" y1="271.78" x2="327.66" y2="271.78" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="271.78" x2="327.66" y2="270.51" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="270.51" x2="326.39" y2="270.51" width="0.1524" layer="97"/>
+<wire x1="326.39" y1="270.51" x2="326.39" y2="266.7" width="0.1524" layer="97"/>
+<wire x1="326.39" y1="266.7" x2="327.66" y2="266.7" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="266.7" x2="328.93" y2="266.7" width="0.1524" layer="97"/>
+<wire x1="328.93" y1="266.7" x2="328.93" y2="270.51" width="0.1524" layer="97"/>
+<wire x1="328.93" y1="270.51" x2="327.66" y2="270.51" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="266.7" x2="327.66" y2="233.68" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="233.68" x2="330.2" y2="233.68" width="0.1524" layer="97"/>
+<wire x1="331.47" y1="257.81" x2="328.93" y2="255.27" width="0.1524" layer="97"/>
+<wire x1="241.3" y1="233.68" x2="237.49" y2="233.68" width="0.1524" layer="97"/>
+<wire x1="237.49" y1="233.68" x2="237.49" y2="252.73" width="0.1524" layer="97"/>
+<wire x1="240.03" y1="248.92" x2="242.57" y2="251.46" width="0.1524" layer="97"/>
+<wire x1="-41.91" y1="128.27" x2="-39.37" y2="128.27" width="0.1524" layer="97"/>
+<wire x1="-39.37" y1="128.27" x2="-40.64" y2="123.19" width="0.1524" layer="97"/>
+<wire x1="-40.64" y1="123.19" x2="-41.91" y2="128.27" width="0.1524" layer="97"/>
+<circle x="-40.64" y="120.65" radius="1.27" width="0.1524" layer="97"/>
+<wire x1="-36.83" y1="124.46" x2="-34.29" y2="128.27" width="0.1524" layer="97"/>
+<wire x1="-34.29" y1="128.27" x2="-40.64" y2="135.89" width="0.1524" layer="97"/>
+<wire x1="-34.29" y1="128.27" x2="-25.4" y2="129.54" width="0.1524" layer="97"/>
+<wire x1="-25.4" y1="129.54" x2="-22.86" y2="147.32" width="0.1524" layer="97"/>
+<wire x1="-24.13" y1="167.64" x2="-21.59" y2="167.64" width="0.1524" layer="97"/>
+<wire x1="-21.59" y1="167.64" x2="-22.86" y2="162.56" width="0.1524" layer="97"/>
+<wire x1="-22.86" y1="162.56" x2="-24.13" y2="167.64" width="0.1524" layer="97"/>
+<wire x1="-20.32" y1="185.42" x2="-22.86" y2="168.91" width="0.1524" layer="97"/>
+<circle x="-22.86" y="160.02" radius="1.27" width="0.1524" layer="97"/>
 </plain>
 <instances>
 <instance part="IC2" gate="A" x="172.72" y="78.74"/>

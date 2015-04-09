@@ -36,9 +36,11 @@ uint32_t led_values[] = {0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00FFFF, 0x00F
 
 static volatile uint16_t led_h = 0;
 static volatile uint16_t led_s = 180;
+static volatile uint8_t led_s_dir = 0;
+static volatile uint16_t led_s_prescale = 0;
 static volatile uint8_t led_change_count = 0;
 static volatile uint8_t led_pause = 0;
-#define LED_FADE_MODE_MAX 3
+#define LED_FADE_MODE_MAX 5
 static volatile uint8_t led_fade_mode = 0;
 
 uint8_t led_mask = 0x3F;
@@ -48,19 +50,22 @@ volatile uint8_t digit_pos = 0;
 
 
 volatile uint32_t digits_time;
+volatile uint32_t digits_aux;
 volatile uint32_t digits_date;
 volatile uint32_t digits_set_time;
 volatile uint32_t digits_set_date;
+volatile uint8_t digits_colons = 0x8;
 
 volatile uint16_t date_countdown = 0;
 volatile uint32_t delay_countdown = 0;
+volatile uint16_t colour_countdown = 0;
 
 const uint8_t gb_r = 0x5;
 const uint8_t gb_g = 0x2;
 const uint8_t gb_b = 0x5;
 
 
-typedef enum {TIME, DATE, SET_TIME, SET_DATE} ui_main_t;
+typedef enum {TIME, TIME_AUX, DATE, SET_TIME, SET_DATE} ui_main_t;
 ui_main_t ui_main = TIME;
 uint8_t set_digit_pair = 0;
 
@@ -74,8 +79,8 @@ int main(void)
 	//GPIO_BRR(HV_PORT) = HV_PIN;	//Turn on HV
 	GPIOB_BSRR = (1<<5)<<16;
 	//gpio_clear(HV_PORT,HV_PIN);	//Turn on HV
-	GPIO_BSRR(CC1_PORT) = CC1_PIN;
-	GPIO_BSRR(CC2_PORT) = CC2_PIN;
+//	GPIO_BSRR(CC1_PORT) = CC1_PIN;
+//	GPIO_BSRR(CC2_PORT) = CC2_PIN;
 
 
 	update_leds();
@@ -93,6 +98,7 @@ int main(void)
 	{
 
     	switch(ui_main){
+    		case TIME_AUX:
     		case TIME:
     			if (gpio_get(S3_PORT,S3_PIN)){         //DATE/TIME button
     				ui_main = DATE;
@@ -116,6 +122,9 @@ int main(void)
 		    			led_fade_mode = 0;
 		    		led_pause = 0;
 		    		wait_button_release();
+		    		colour_countdown = 1000;
+		    		ui_main = TIME_AUX;
+		    		digits_aux = (0xFF<<16) | ((led_fade_mode+1) << 8) | (0xFF);
 		    	}
     			break;
     		case DATE:
@@ -233,6 +242,11 @@ void sys_tick_handler(void)
 		if ((date_countdown == 0) &&(ui_main == DATE))
 			ui_main = TIME;
 	}
+	if (colour_countdown){
+		colour_countdown--;
+		if ((colour_countdown == 0) &&(ui_main = TIME_AUX))
+			ui_main = TIME;
+	}
 
 	if (delay_countdown)
 		delay_countdown--;
@@ -243,7 +257,7 @@ void sys_tick_handler(void)
 		led_change_count = 100;
 
 		uint8_t i;
-		uint16_t v;
+		uint16_t v,led_s_lim;
 		uint32_t v1;
 
 		led_h += 1;
@@ -261,21 +275,63 @@ void sys_tick_handler(void)
 				}
 				break;
 			case 2:               //continuous gradient
-				if (led_h == 61){
-					if (led_s < 200)
-						led_s = 220;
+				//led_s_prescale++;
+				//if (led_s_prescale > 3){
+					led_s_prescale = 0;
+					if (led_s_dir)
+						led_s+=3;
 					else
-						led_s = 180;
+						led_s-=3;
+
+				//}
+				if (led_s < 100){
+					led_s = 100;
+					led_s_dir = 100;
 				}
+				if (led_s > 400){
+					led_s = 400;
+					led_s_dir = 0;
+				}
+
+				led_s_lim = led_s;
+				if (led_s > 255)
+					led_s_lim = 255;
+				if (led_s < 160)
+					led_s_lim = 160;
+
+
+				//if (led_h == 61){
+				//	if (led_s < 200)
+				//		led_s = 220;
+				//	else
+				//		led_s = 180;
+				//}
 			case 1:
 				if (led_fade_mode == 1)
 					v1 = hsv_to_rgb(led_h,255,255);
 				else
-					v1 = hsv_to_rgb(led_h,led_s,255);
+					v1 = hsv_to_rgb(led_h,led_s_lim,255);
 				for (i = 0; i < 6; i++)
 					led_values[i] = v1;
 				break;
-
+			case 3:
+				v = led_h;
+				for (i = 0; i < 6; i++){
+					led_values[i] = hsv_to_rgb((uint16_t)v,255,255);
+					v+= 60;
+					if (v >= 360)
+						v -= 360;
+				}
+				break;
+			case 4:
+				v = led_h;
+				for (i = 0; i < 6; i++){
+					led_values[i] = hsv_to_rgb((uint16_t)v,255,255);
+					v+= 180;
+					if (v >= 360)
+						v -= 300;
+				}
+				break;
 		}
 
 		//led_values[5] = hsv_to_rgb(led_h,255,255);
@@ -311,6 +367,7 @@ void increment_digit(void)
 	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
 	digit_pos++;
 	GPIO_ODR(A_PORT) = (GPIO_ODR(A_PORT) & ~ABCD_MASK);
+	gpio_clear(CC1_PORT,CC1_PIN | CC2_PIN);
 
 	if (digit_pos >= 6)
 	{
@@ -327,7 +384,12 @@ void increment_digit(void)
 
 
 	uint32_t digits_bcd;
+	digits_colons = 8;
 	switch(ui_main){
+		case TIME_AUX:
+			digits_bcd = digits_aux;
+			digits_colons = 0;
+			break;
 		case TIME:
 			digits_bcd = digits_time;
 			break;
@@ -347,6 +409,27 @@ void increment_digit(void)
 
 	uint32_t digit = (digits_bcd >> (4*(5-digit_pos))) & 0xF;
 	digit = (9-digit) << 6;
+
+/*	*/if (digit_pos == 1){
+		GPIO_BSRR(CC1_PORT) = (CC1_PIN | CC2_PIN) << 16;
+		if (digits_colons & 0x8)
+			GPIO_BSRR(CC1_PORT) = CC1_PIN;
+		if (digits_colons & 0x4)
+			GPIO_BSRR(CC2_PORT) = CC2_PIN;
+	}else if (digit_pos == 3){
+		GPIO_BSRR(CC1_PORT) = (CC1_PIN | CC2_PIN) << 16;
+		if (digits_colons & 0x2)
+			GPIO_BSRR(CC1_PORT) = CC1_PIN;
+		if (digits_colons & 0x1)
+			GPIO_BSRR(CC2_PORT) = CC2_PIN;
+	}
+	else
+		GPIO_BSRR(CC1_PORT) = (CC1_PIN | CC2_PIN) << 16;
+	//	GPIO_ODR(B_PORT) = (GPIO_ODR(B_PORT) & ~EF_MASK) | ((digits_colons&0xC) << 10);
+	//else if (digit_pos == 3)
+	//	GPIO_ODR(B_PORT) = (GPIO_ODR(B_PORT) & ~EF_MASK) | ((digits_colons&0x3) << 12);
+	////else
+	////	GPIO_ODR(B_PORT) = (GPIO_ODR(B_PORT) & ~EF_MASK);
 
 	GPIO_ODR(A_PORT) = (GPIO_ODR(A_PORT) & ~ABCD_MASK) | digit;
 
