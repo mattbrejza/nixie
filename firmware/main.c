@@ -348,12 +348,11 @@ void exti4_15_isr(void)
 	{
 		digits_time = bcd_time_inc(digits_time,1,1);
 
-		uint32_t dst = ds3234_read_time_bcd();
-		if (dst != digits_time)
-			digits_time = dst;
 
-		uint32_t dsd = ds3234_read_date_bcd();
-			digits_date = dsd;
+		//digits_time = ds3234_read_time_bcd();
+
+		if (digits_time == 0x000000)
+			digits_date = ds3234_read_date_bcd();
 
 		if ((EXTI_PR & (GPIO8)) != 0)
 			EXTI_PR |= (GPIO8);
@@ -363,6 +362,7 @@ void exti4_15_isr(void)
 
 void increment_digit(void)
 {
+
 	GPIO_BSRR(NCLK_PORT) = NCLK_PIN<<16;
 	GPIO_BSRR(NDAT_PORT) = NDAT_PIN<<16;
 	digit_pos++;
