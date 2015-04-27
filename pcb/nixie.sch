@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -22008,7 +22008,6 @@ Based on the following sources:
 <sheets>
 <sheet>
 <plain>
-<text x="78.74" y="73.66" size="1.778" layer="91">test currents along these</text>
 <text x="154.94" y="-45.72" size="1.778" layer="91" rot="R90">series res?</text>
 <text x="-109.22" y="48.26" size="1.778" layer="91" rot="R180">test bootloader</text>
 <text x="-96.52" y="43.18" size="1.778" layer="91">test reset</text>
@@ -22055,6 +22054,24 @@ Based on the following sources:
 <wire x1="-22.86" y1="162.56" x2="-24.13" y2="167.64" width="0.1524" layer="97"/>
 <wire x1="-20.32" y1="185.42" x2="-22.86" y2="168.91" width="0.1524" layer="97"/>
 <circle x="-22.86" y="160.02" radius="1.27" width="0.1524" layer="97"/>
+<wire x1="87.63" y1="182.88" x2="90.17" y2="182.88" width="0.1524" layer="97"/>
+<wire x1="88.9" y1="177.8" x2="87.63" y2="182.88" width="0.1524" layer="97"/>
+<wire x1="90.17" y1="182.88" x2="88.9" y2="177.8" width="0.1524" layer="97"/>
+<circle x="88.9" y="175.26" radius="1.27" width="0.1524" layer="97"/>
+<wire x1="78.74" y1="182.88" x2="86.36" y2="181.61" width="0.1524" layer="97"/>
+<wire x1="135.89" y1="210.82" x2="138.43" y2="210.82" width="0.1524" layer="97"/>
+<wire x1="137.16" y1="205.74" x2="135.89" y2="210.82" width="0.1524" layer="97"/>
+<wire x1="138.43" y1="210.82" x2="137.16" y2="205.74" width="0.1524" layer="97"/>
+<circle x="137.16" y="203.2" radius="1.27" width="0.1524" layer="97"/>
+<wire x1="144.78" y1="208.28" x2="140.97" y2="208.28" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="208.28" x2="140.97" y2="207.01" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="207.01" x2="139.7" y2="207.01" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="207.01" x2="142.24" y2="207.01" width="0.1524" layer="97"/>
+<wire x1="139.7" y1="206.375" x2="140.97" y2="206.375" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="206.375" x2="142.24" y2="206.375" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="206.375" x2="140.97" y2="203.2" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="203.2" x2="140.335" y2="203.2" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="203.2" x2="141.605" y2="203.2" width="0.1524" layer="97"/>
 </plain>
 <instances>
 <instance part="IC2" gate="A" x="172.72" y="78.74"/>
