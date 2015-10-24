@@ -52,6 +52,7 @@ volatile uint8_t digit_pos = 0;
 volatile uint32_t digits_time;
 volatile uint32_t digits_aux;
 volatile uint32_t digits_date;
+volatile uint32_t digits_cascade;
 volatile uint32_t digits_set_time;
 volatile uint32_t digits_set_date;
 volatile uint8_t digits_colons = 0x8;
@@ -59,6 +60,12 @@ volatile uint8_t digits_colons = 0x8;
 volatile uint16_t date_countdown = 0;
 volatile uint32_t delay_countdown = 0;
 volatile uint16_t colour_countdown = 0;
+volatile uint8_t cascade_countdown = 3;
+volatile uint8_t cascade_countdown2 = 3;
+
+
+volatile uint32_t cascade_jump = 0;
+volatile uint8_t cascade_lr = 0;
 
 const uint8_t gb_r = 0x5;
 const uint8_t gb_g = 0x2;
@@ -103,6 +110,8 @@ int main(void)
     			if (gpio_get(S3_PORT,S3_PIN)){         //DATE/TIME button
     				ui_main = DATE;
     				date_countdown = 5000;
+    				cascade_jump = 0x00111111;
+    				cascade_lr = 1;
     			}
 				else if (gpio_get(S2_PORT,S2_PIN)) {  //SET button
 					ui_main = SET_TIME;
@@ -237,10 +246,52 @@ void sys_tick_handler(void)
 {
 	increment_digit();
 
+	if (cascade_jump)
+		cascade_countdown--;
+	if ((cascade_countdown == 0) && cascade_jump){
+		cascade_countdown = 8;
+
+		uint32_t mask = 0xF00000;
+		uint32_t local_jump = cascade_jump;
+		uint32_t target;
+		uint8_t done = 1;
+		switch(ui_main){
+			case TIME:
+				target = digits_time;
+				break;
+			default:  //date
+				target = digits_date;
+				break;
+		}
+		while(mask){
+			if ((cascade_jump & mask) == 0){
+				if ((digits_cascade & mask) != (target & mask)){
+					local_jump |= (0x111111 & mask);
+					done = 0;
+				}
+			}
+			mask = mask >> 4;
+		}
+		digits_cascade = bcd_inc_digit(digits_cascade, local_jump);
+
+		if (done)
+			cascade_countdown2--;
+		if (cascade_countdown2 == 0){
+			cascade_countdown2 = 20;
+			if (cascade_lr)
+				cascade_jump = (cascade_jump << 4) & 0xFFFFFF;
+			else
+				cascade_jump = cascade_jump >> 4;
+		}
+	}
+
 	if (date_countdown){
 		date_countdown--;
-		if ((date_countdown == 0) &&(ui_main == DATE))
+		if ((date_countdown == 0) &&(ui_main == DATE)){
 			ui_main = TIME;
+			cascade_jump = 0x00111111;
+			cascade_lr = 0;
+		}
 	}
 	if (colour_countdown){
 		colour_countdown--;
@@ -348,6 +399,19 @@ void exti4_15_isr(void)
 	{
 		digits_time = bcd_time_inc(digits_time,1,1);
 
+		if ((digits_time & 0x00FFFF) == 0x000000){
+			if (ui_main == TIME){
+				cascade_jump = 0x00111111;
+				cascade_lr = 0;
+			}
+		}
+		if ((digits_time & 0x00FFFF) == 0x003000){
+			if (ui_main == TIME){
+				cascade_jump = 0x00111111;
+				cascade_lr = 1;
+			}
+		}
+
 
 		//digits_time = ds3234_read_time_bcd();
 
@@ -385,26 +449,30 @@ void increment_digit(void)
 
 	uint32_t digits_bcd;
 	digits_colons = 8;
-	switch(ui_main){
-		case TIME_AUX:
-			digits_bcd = digits_aux;
-			digits_colons = 0;
-			break;
-		case TIME:
-			digits_bcd = digits_time;
-			break;
-		case DATE:
-			digits_bcd = digits_date;
-			break;
-		case SET_TIME:
-			digits_bcd = digits_set_time;
-			break;
-		case SET_DATE:
-			digits_bcd = digits_set_date;
-			break;
-		default:
-			digits_bcd = 0xFFFFFF;
-			break;
+	if (cascade_jump)
+		digits_bcd = digits_cascade;
+	else{
+		switch(ui_main){
+			case TIME_AUX:
+				digits_bcd = digits_aux;
+				digits_colons = 0;
+				break;
+			case TIME:
+				digits_bcd = digits_time;
+				break;
+			case DATE:
+				digits_bcd = digits_date;
+				break;
+			case SET_TIME:
+				digits_bcd = digits_set_time;
+				break;
+			case SET_DATE:
+				digits_bcd = digits_set_date;
+				break;
+			default:
+				digits_bcd = 0xFFFFFF;
+				break;
+		}
 	}
 
 	uint32_t digit = (digits_bcd >> (4*(5-digit_pos))) & 0xF;

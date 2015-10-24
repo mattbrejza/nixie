@@ -103,3 +103,32 @@ uint32_t bcd_date_inc(uint32_t in, uint32_t in2, uint8_t overflow)
 	}
 	return in;
 }
+
+uint32_t bcd_inc_digit(uint32_t in, uint32_t inc_mask)
+{
+	uint32_t mask = 0xF00000;
+	uint32_t t;
+	t = in + inc_mask;
+	while(mask){
+		if (inc_mask & mask){
+			in = (in & ~mask) | (t & mask);
+		}
+		mask = mask >> 1;
+	}
+
+	if ((in & 0xF) > 0x9)
+		in = in - 0xA;
+	if ((in & 0xF0) > 0x90)
+		in = in - 0xA0;
+	if ((in & 0xF00) > 0x900)
+		in = in - 0xA00;
+	if ((in & 0xF000) > 0x9000)
+		in = in - 0xA000;
+	if ((in & 0xF0000) > 0x90000)
+		in = in - 0xA0000;
+	if ((in & 0xF00000) > 0x900000)
+		in = in - 0xA00000;
+
+	return in;
+
+}

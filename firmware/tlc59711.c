@@ -1,4 +1,5 @@
 #include <inttypes.h>
+#include <string.h>
 
 //this function is only 8 bit, and reorders for the leds on the board.
 //buffer needs to fit packets for both packets
