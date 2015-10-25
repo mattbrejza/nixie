@@ -448,7 +448,7 @@ void increment_digit(void)
 
 
 	uint32_t digits_bcd;
-	digits_colons = 8;
+	digits_colons = 12;//8;
 	if (cascade_jump)
 		digits_bcd = digits_cascade;
 	else{
@@ -462,6 +462,7 @@ void increment_digit(void)
 				break;
 			case DATE:
 				digits_bcd = digits_date;
+				digits_colons = 8;
 				break;
 			case SET_TIME:
 				digits_bcd = digits_set_time;
